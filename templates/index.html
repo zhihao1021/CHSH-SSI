@@ -13,12 +13,21 @@
     <style>
         :root {
             /* 背景顏色 */
-            --background-color: #000000;
-            --border-color: #353535;
+            --background-color: #232323;
+            --sec-background-color: #000000;
+            /* --background-color: #FFFFFF; */
+            --border-color: #777777;
             /* 文字顏色 */
             --text-color: #FFFFFF;
+            /* --text-color: #000000; */
             --highlight-color: #FF8200;
             --second-color: #0082FF;
+        }
+
+        html,
+        body,
+        #pages {
+            background-color: var(--background-color);
         }
 
         html,
@@ -29,25 +38,19 @@
             height: 100%;
             margin: 0px;
             overflow: hidden;
-            background-color: var(--background-color);
         }
 
         /* 預設的Style */
         #pages .page {
-            /* 隱藏時的Style */
-            top: -100%;
-            opacity: 0%;
-            
             left: 0px;
-            position: absolute;
+            position: fixed;
             color: var(--text-color);
             font-family: "Noto Sans TC", sans-serif;
-            background-color: inherit;
 
             /* 元素置中顯示 */
-            display: flex;
+            /* display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; */
             transition: top 1s, opacity 1s;
         }
 
@@ -57,13 +60,26 @@
             opacity: 100%;
         }
 
+        /* 在背景時的Style */
+        #pages .page.display.background {
+            top: 0px;
+            opacity: 100%;
+        }
+
+        /* 隱藏時的Style */
+        #pages .page.hide {
+            top: -100vh;
+            opacity: 100%;
+            /* transform: rotateX(-90deg); */
+        }
+
         /* 平均分配位置 */
-        #pages .page>* {
+        /* #pages .page>* {
             flex: 1;
             width: calc(100% - 3vmax);
             height: calc(100% - 3vmin);
             margin: 1.5vmin 1.5vmax;
-        }
+        } */
 
         /* 手機板 */
         @media (max-aspect-ratio: 1/1) {
@@ -84,11 +100,20 @@
         hash = hash === "" ? "#page-1" : hash;
         let target_id = document.querySelector(hash) == null ? document.querySelector("#pages").firstChild.id : hash.replace("#", "");
         document.querySelectorAll("#pages > .page").forEach((element) => {
-            if (element.id <= target_id) {
+            if (element.id == target_id) {
                 element.classList.add("display");
+                element.classList.remove("background");
+                element.classList.remove("hide");
+            }
+            else if (element.id < target_id) {
+                element.classList.add("display");
+                element.classList.add("background");
+                element.classList.remove("hide");
             }
             else {
                 element.classList.remove("display");
+                element.classList.remove("background");
+                element.classList.add("hide");
             }
         })
     }
@@ -123,6 +148,13 @@
         new_page.classList.add("page");
         if (next_index == nowpage) {
             new_page.classList.add("display");
+        }
+        else if (next_index < nowpage) {
+            new_page.classList.add("display");
+            new_page.classList.add("background");
+        }
+        else {
+            new_page.classList.add("hide");
         }
 
         parent.appendChild(new_page);

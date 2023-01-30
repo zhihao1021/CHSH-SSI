@@ -1,57 +1,44 @@
 <style>
-    #page-2 .intro {
-        display: flex;
-        flex-direction: column;
+    #page-2 {
+        display: block;
+        background-color: #333333;
     }
-    #page-2 .intro div {
-        margin: 0px;
+
+    #page-2 hr.hor-hr {
+        height: 0px;
+        width: calc(100% - 2vw);
     }
-    #page-2 .intro div.title {
-        font-size: 10vmin;
+
+    #page-2 .block {
+        margin: 2vh 2vw;
     }
-    #page-2 .intro div.content {
-        font-size: 5vmin;
+
+    #page-2 .title {
+        font-size: 8vmin;
+        user-select: none;
     }
-    #page-2 .intro img {
-        object-fit: contain;
-        width: 50%;
+
+    #page-2 ul {
+        font-size: 6vmin;
+        padding-left: 9vmin;
     }
-    @media (max-aspect-ratio: 1/1) {
-        #page-2 zero-md {
-            flex: 0!important;
-        }
-        #page-2 .intro div {
-            margin: 2vmin 0px;
-        }
-        #page-2 .intro .img-block {
-            width: 100%;
-        }
-        #page-2 .intro .img-block img {
-            object-fit: contain;
-            height: 100%;
-            margin: 0px auto;
-        }
+
+    #page-2 ul li {
+        transition: color 0.3s;
+        width: max-content;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    #page-2 ul li:hover {
+        color: var(--highlight-color);
     }
 </style>
-
-<zero-md src="/markdowns/README.md">
-    <template>
-        <!-- <link rel="stylesheet" href="/static/css/prism.normal.min.css"> -->
-        <link rel="stylesheet" href="/static/css/prism.dark.min.css">
-        <style>
-            /* Markdown內的文字顏色 */
-            * {
-                color: var(--text-color);
-            }
-        </style>
-    </template>
-</zero-md>
-
-<div class="intro">
-    <div class="title">Introduction Title</div>
-    <div class="content">This is introduction</div>
-    <div class="img-block">
-        <img src="/static/img/example.png">
-    </div>
-    <div class="content">Take Some Img</div>
-</div>
+<div class="title block">資訊相關競賽介紹</div>
+<hr class="hor-hr">
+<ul class="block">
+    <li>演算法</li>
+    <li>資訊安全</li>
+    <li>開發</li>
+    <li>其他</li>
+</ul>
