@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <link rel="icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/fonts/Caveat/Caveat.css">
+    <title>404 Not Found</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            overflow: hidden;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #title-box {
+            animation: rolate 4s infinite linear;
+        }
+
+        #title {
+            font-family: "Caveat", cursive;
+            color: rgb(255, 255, 255);
+            font-size: 10vmin;
+            animation: float 4s infinite ease-in-out;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        #title:hover {
+            color: rgb(255, 130, 0);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0vh);
+            }
+
+            40% {
+                transform: translate(0, -4vh);
+            }
+
+            100% {
+                transform: translate(0, 0vh);
+            }
+        }
+
+        @keyframes rolate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            20% {
+                transform: rotate(4deg);
+            }
+
+            50% {
+                transform: rotate(1deg);
+            }
+
+            80% {
+                transform: rotate(-2deg);
+            }
+
+            95% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title-box">
+        <p id="title">404 Not Found...</p>
+    </div>
+</body>
+
+</html>

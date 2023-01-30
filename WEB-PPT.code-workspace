@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"javascript.preferences.autoImportFileExcludePatterns": [
+			"**/**jquery**.js",
+			"**/**zero-md**.js"
+		],
+	}
+}

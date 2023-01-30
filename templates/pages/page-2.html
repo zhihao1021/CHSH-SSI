@@ -1,0 +1,57 @@
+<style>
+    #page-2 .intro {
+        display: flex;
+        flex-direction: column;
+    }
+    #page-2 .intro div {
+        margin: 0px;
+    }
+    #page-2 .intro div.title {
+        font-size: 10vmin;
+    }
+    #page-2 .intro div.content {
+        font-size: 5vmin;
+    }
+    #page-2 .intro img {
+        object-fit: contain;
+        width: 50%;
+    }
+    @media (max-aspect-ratio: 1/1) {
+        #page-2 zero-md {
+            flex: 0!important;
+        }
+        #page-2 .intro div {
+            margin: 2vmin 0px;
+        }
+        #page-2 .intro .img-block {
+            width: 100%;
+        }
+        #page-2 .intro .img-block img {
+            object-fit: contain;
+            height: 100%;
+            margin: 0px auto;
+        }
+    }
+</style>
+
+<zero-md src="/markdowns/README.md">
+    <template>
+        <!-- <link rel="stylesheet" href="/static/css/prism.normal.min.css"> -->
+        <link rel="stylesheet" href="/static/css/prism.dark.min.css">
+        <style>
+            /* Markdown內的文字顏色 */
+            * {
+                color: var(--text-color);
+            }
+        </style>
+    </template>
+</zero-md>
+
+<div class="intro">
+    <div class="title">Introduction Title</div>
+    <div class="content">This is introduction</div>
+    <div class="img-block">
+        <img src="/static/img/example.png">
+    </div>
+    <div class="content">Take Some Img</div>
+</div>
