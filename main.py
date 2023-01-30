@@ -1,7 +1,7 @@
 from typing import Optional
 from config import CONFIG
 
-from utils import open_markdown, open_template, error_404
+from utils import open_markdown, open_page, open_template, error_404
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -17,7 +17,7 @@ async def root():
 
 @app.get("/include-page/{filename}")
 async def templates(filename: Optional[str]=None):
-    return await open_template("pages/" + filename)
+    return await open_page(filename)
 
 @app.exception_handler(404)
 async def not_found(requests, exc):

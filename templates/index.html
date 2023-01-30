@@ -11,23 +11,11 @@
     <script src="/static/js/jquery.min.js"></script>
     <script type="module" src="/static/js/zero-md.min.js"></script>
     <style>
-        :root {
-            /* 背景顏色 */
-            --background-color: #232323;
-            --sec-background-color: #000000;
-            /* --background-color: #FFFFFF; */
-            --border-color: #777777;
-            /* 文字顏色 */
-            --text-color: #FFFFFF;
-            /* --text-color: #000000; */
-            --highlight-color: #FF8200;
-            --second-color: #0082FF;
-        }
-
         html,
         body,
         #pages {
-            background-color: var(--background-color);
+            background-color: #000000;
+            color: #FFFFFF;
         }
 
         html,
@@ -44,41 +32,44 @@
         #pages .page {
             left: 0px;
             position: fixed;
-            color: var(--text-color);
             font-family: "Noto Sans TC", sans-serif;
 
             /* 元素置中顯示 */
             /* display: flex;
             justify-content: center;
             align-items: center; */
-            transition: top 1s, opacity 1s;
+            transition: top 1s, opacity 1s, filter 1s, transform 1s;
         }
 
         /* 顯示時的Style */
         #pages .page.display {
             top: 0px;
             opacity: 100%;
+            filter: blur(0px);
+            transform: scale(1);
         }
 
         /* 在背景時的Style */
         #pages .page.display.background {
             top: 0px;
             opacity: 100%;
+            filter: blur(8px);
+            background-position: -4px;
+            transform: scale(0);
         }
 
         /* 隱藏時的Style */
         #pages .page.hide {
-            top: -100vh;
-            opacity: 100%;
-            /* transform: rotateX(-90deg); */
+            /* top: -100vh; */
+            top: 0px;
+            opacity: 0%;
+            filter: blur(8px);
+            transform: scale(3);
+            user-select: none;
+            pointer-events: none;
         }
-
-        /* 平均分配位置 */
-        /* #pages .page>* {
-            flex: 1;
-            width: calc(100% - 3vmax);
-            height: calc(100% - 3vmin);
-            margin: 1.5vmin 1.5vmax;
+        /* #pages .page.hide * {
+            user-select: none !important;
         } */
 
         /* 手機板 */
@@ -86,6 +77,42 @@
             #pages .page {
                 flex-direction: column;
             }
+        }
+    </style>
+    <style>
+        .page {
+        display: block;
+        }
+
+        .page hr.hor-hr {
+            height: 0px;
+            width: calc(100% - min(3vmax, 5vw));
+            border-color: #FFA422;
+        }
+
+        .page .block {
+            margin: 2vh min(3vmax, 5vw);
+        }
+
+        .page .title {
+            font-size: min(8vmin, 7vw);
+            user-select: none;
+        }
+
+        .page ul {
+            font-size: min(6vmin, 5vw);
+            padding-left: 8vmin;
+        }
+
+        .page ul li {
+            transition: color 0.3s;
+            width: max-content;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .page ul li:hover {
+            color: #FF8200;
         }
     </style>
 </head>
