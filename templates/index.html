@@ -52,10 +52,10 @@
         /* 在背景時的Style */
         #pages .page.display.background {
             top: 0px;
-            opacity: 100%;
+            opacity: 0%;
             filter: blur(8px);
             background-position: -4px;
-            transform: scale(0);
+            transform: scale(0.3);
         }
 
         /* 隱藏時的Style */
@@ -81,7 +81,7 @@
     </style>
     <style>
         .page {
-        display: block;
+            display: block;
         }
 
         .page hr.hor-hr {
@@ -92,6 +92,7 @@
 
         .page .block {
             margin: 2vh min(3vmax, 5vw);
+            max-width: calc(100% - (2 * min(3vmax, 5vw)) - 8vmin);
         }
 
         .page .title {
@@ -106,7 +107,8 @@
 
         .page ul li {
             transition: color 0.3s;
-            width: max-content;
+            width: fit-content;
+            max-width: calc(100%);
             cursor: pointer;
             user-select: none;
         }

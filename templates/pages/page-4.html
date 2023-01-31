@@ -1,0 +1,45 @@
+<style>
+    #page-n .block {
+        display: flex;
+        max-width: 100%;
+    }
+    #page-n .block ul {
+        flex: 9;
+        margin: 0px;
+        max-width: calc(100% - 8vmin);
+    }
+    #page-n .block .img-block {
+        flex: 5;
+        display: flex;
+        justify-content: center;
+    }
+    #page-n .block .img-block img {
+        margin: auto 0px;
+        width: 100%;
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+        #page-n .block {
+            flex-direction: column;
+        }
+
+        #page-n .block .img-block {
+            align-items: center;
+        }
+        #page-n .block .img-block img {
+            margin: 2vh auto;
+            width: 85%;
+        }
+    }
+</style>
+<div class="title block">資訊相關競賽介紹 - 演算法</div>
+<hr class="hor-hr">
+<div class="block">
+    <ul>
+        <li>APCS 大學程式設計先修檢測</li>
+        <li>APCS為Advanced Placement Computer Science的英文縮寫，是指「大學程式設計先修檢測」。其檢測模式乃參考美國大學先修課程（Advanced Placement，AP），與各大學合作命題，並確定檢定用題目經過信效度考驗，以確保檢定結果之公信力。</li>
+    </ul>
+    <div class="img-block">
+        <img src="/static/img/APCS.png">
+    </div>
+</div>
